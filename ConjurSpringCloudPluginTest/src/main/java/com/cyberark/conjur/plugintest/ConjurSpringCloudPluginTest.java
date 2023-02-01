@@ -9,23 +9,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.cyberark.conjur.springboot.annotations.ConjurPropertySource;
-import com.cyberark.conjur.springboot.annotations.ConjurValue;
-import com.cyberark.conjur.springboot.annotations.ConjurValues;
 
 @SpringBootApplication
-@ConjurPropertySource(value={"jenkins-app/"})
-public class ConjurSpringPluginTest implements CommandLineRunner{
-	private static Logger logger = LoggerFactory.getLogger(ConjurSpringPluginTest.class);
+public class ConjurSpringCloudPluginTest implements CommandLineRunner{
+	private static Logger logger = LoggerFactory.getLogger(ConjurSpringCloudPluginTest.class);
 
 	
-	@Value("${dbUserName}")
+	@Value("${jenkins-app/dbUserName}")
 	private byte[] pass1;
 
-	@Value("${dbPassword}")
+	@Value("${jenkins-app/dbPassword}")
 	private byte[] pass2;
 
-	@Value("${dbUrl}")
+	@Value("${jenkins-app/dbUrl}")
 	private byte[] pass3;
 
 	
@@ -34,7 +30,7 @@ public class ConjurSpringPluginTest implements CommandLineRunner{
 	
     public static void main(String[] args) {
     	
-        SpringApplication.run(ConjurSpringPluginTest.class, args);
+        SpringApplication.run(ConjurSpringCloudPluginTest.class, args);
     }
 
     
